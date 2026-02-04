@@ -35,8 +35,7 @@
             <small>{{ $c->progress() }}%</small>
         </div>
 
-        {{-- FORM DONASI (INI YANG MEMICU ALERT) --}}
-        <form method="POST" action="/campaigns/{{ $c->id }}/donate">
+        <form method="POST" action={{ route('campaigns.donate', $c->id) }}>
             @csrf
             <input
                 type="number"

@@ -2,6 +2,7 @@
 
 // use App\Http\Controllers\CampaignController;
 // use App\Http\Controllers\DonationController;
+use App\Http\Controllers\DonationController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\CampaignController as AdminCampaign;
 use App\Http\Controllers\Front\CampaignController as FrontCampaign;
@@ -12,7 +13,7 @@ Route::get('/', function () {
 
 // USER
 Route::get('/campaigns', [FrontCampaign::class, 'index']);
-Route::post('/campaigns/{id}/donate', [FrontCampaign::class, 'donate']);
+Route::post('/campaigns/{id}/donate', [DonationController::class, 'donate'])->name('campaigns.donate');
 
 // ADMIN
 Route::get('/admin/campaigns', [AdminCampaign::class, 'index']);

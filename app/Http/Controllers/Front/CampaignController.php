@@ -34,6 +34,7 @@ class CampaignController extends Controller
 
         $campaign->increment('current_amount', $request->amount);
 
-        return back();
+        return redirect()->back()
+            ->with('success', 'Terima kasih! Donasi Anda berhasil diproses.');
     }
 }
