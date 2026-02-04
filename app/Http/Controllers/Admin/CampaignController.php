@@ -31,22 +31,7 @@ class CampaignController extends Controller
 
         return redirect('/admin/campaigns');
     }
-
-    // public function edit($id)
-    // {
-    //     $campaign = Campaign::findOrFail($id);
-    //     return view('admin.campaigns.edit', compact('campaign'));
-    // }
-
-    // public function update(Request $request, $id)
-    // {
-    //     $campaign = Campaign::findOrFail($id);
-
-    //     $campaign->update($request->only('title','description','target_amount'));
-
-    //     return redirect('/admin/campaigns');
-    // }
-
+    
     public function destroy($id)
     {
         Campaign::findOrFail($id)->delete();

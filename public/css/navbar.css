@@ -1,0 +1,36 @@
+nav {
+    background: linear-gradient(135deg, #1e293b, #334155);
+    padding: 16px 36px;
+
+    display: flex;
+    gap: 24px;
+    align-items: center;
+
+    position: sticky;
+    top: 0;
+    z-index: 999;
+
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
+}
+
+nav a {
+    color: #e5e7eb;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 15px;
+    padding: 8px 14px;
+    border-radius: 999px;
+    transition: all 0.25s ease;
+}
+
+nav a:hover {
+    background: rgba(56, 189, 248, 0.25);
+    color: #ffffff;
+    transform: translateY(-1px);
+}
+
+nav a.active {
+    background: #38bdf8;
+    color: #0f172a;
+    box-shadow: 0 4px 12px rgba(56, 189, 248, 0.6);
+}

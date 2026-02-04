@@ -3,20 +3,49 @@
 @section('content')
 <h1>Campaign Donasi</h1>
 
-<div style="display:flex; gap:20px;">
+@if (session('success'))
+    <div class="alert alert-success">
+        {{ session('success') }}
+    </div>
+@endif
+
+@if (session('error'))
+    <div class="alert alert-error">
+        {{ session('error') }}
+    </div>
+@endif
+
+<div class="campaign-grid">
 @foreach ($campaigns as $c)
-    <div style="border:1px solid #ccc; padding:15px; width:250px;">
+    <div class="campaign-card">
         <h3>{{ $c->title }}</h3>
+
         <p>{{ $c->description }}</p>
 
-        <p>Target: {{ $c->target_amount }}</p>
-        <p>Terkumpul: {{ $c->current_amount }}</p>
-        <p>Progress: {{ $c->progress() }}%</p>
+        <p><strong>Target:</strong> Rp {{ number_format($c->target_amount) }}</p>
+        <p><strong>Terkumpul:</strong> Rp {{ number_format($c->current_amount) }}</p>
 
+        <div class="progress-wrapper">
+            <div class="progress-bar">
+                <div
+                    class="progress-fill"
+                    style="width: {{ $c->progress() }}%"
+                ></div>
+            </div>
+            <small>{{ $c->progress() }}%</small>
+        </div>
+
+        {{-- FORM DONASI (INI YANG MEMICU ALERT) --}}
         <form method="POST" action="/campaigns/{{ $c->id }}/donate">
             @csrf
-            <input type="number" name="amount" placeholder="Nominal">
-            <button>Donasi</button>
+            <input
+                type="number"
+                name="amount"
+                placeholder="Nominal donasi"
+                required
+                min="1000"
+            >
+            <button type="submit">Donasi</button>
         </form>
     </div>
 @endforeach

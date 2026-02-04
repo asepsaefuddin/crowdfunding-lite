@@ -11,11 +11,16 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('donations', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
-        });
+    Schema::create('donations', function (Blueprint $table) {
+        $table->id();
+        $table->foreignId('campaign_id')
+              ->constrained('campaigns')
+              ->onDelete('cascade');
+        $table->decimal('amount', 15, 2);
+        $table->timestamps();
+    });
     }
+
 
     /**
      * Reverse the migrations.

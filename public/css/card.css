@@ -1,0 +1,81 @@
+.campaign-grid {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+}
+
+.campaign-card {
+    width: 260px;
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 18px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.campaign-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 14px 36px rgba(0, 0, 0, 0.15);
+}
+
+.campaign-card h3 {
+    margin: 0 0 8px;
+    font-size: 18px;
+    color: #0f172a;
+}
+
+/* DESCRIPTION */
+.campaign-card p {
+    font-size: 14px;
+    color: #555;
+    margin: 6px 0;
+}
+
+/* ===== PROGRESS ===== */
+.progress-wrapper {
+    margin: 12px 0 14px;
+}
+
+.progress-bar {
+    height: 8px;
+    background: #e5e7eb;
+    border-radius: 999px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #38bdf8, #0ea5e9);
+    transition: width 0.4s ease;
+}
+
+/* ===== DONATION FORM ===== */
+.campaign-card input {
+    width: 100%;
+    padding: 9px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+
+.campaign-card button {
+    width: 100%;
+    padding: 10px;
+    background: #38bdf8;
+    border: none;
+    color: #0f172a;
+    font-weight: 600;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.1s ease;
+}
+
+.campaign-card button:hover {
+    background: #0ea5e9;
+    color: white;
+}
+
+.campaign-card button:active {
+    transform: scale(0.97);
+}

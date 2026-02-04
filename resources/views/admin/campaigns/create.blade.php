@@ -1,26 +1,31 @@
 @extends('layouts.app')
 
 @section('content')
-<h1>Tambah Campaign</h1>
+<div class="admin-form">
+    <h1>Tambah Campaign</h1>
 
-<form method="POST" action="/admin/campaigns">
-    @csrf
+    <form method="POST" action="/admin/campaigns">
+        @csrf
 
-    <div>
-        <label>Judul</label><br>
-        <input type="text" name="title">
-    </div>
+        <div class="form-group">
+            <label>Judul</label>
+            <input type="text" name="title" required>
+        </div>
 
-    <div>
-        <label>Deskripsi</label><br>
-        <textarea name="description"></textarea>
-    </div>
+        <div class="form-group">
+            <label>Deskripsi</label>
+            <textarea name="description" required></textarea>
+        </div>
 
-    <div>
-        <label>Target Donasi</label><br>
-        <input type="number" name="target_amount">
-    </div>
+        <div class="form-group">
+            <label>Target Donasi</label>
+            <input type="number" name="target_amount" required min="1">
+        </div>
 
-    <button type="submit">Simpan</button>
-</form>
+        <div class="form-actions">
+            <button type="submit" class="form-submit">Simpan</button>
+            <a href="/admin/campaigns" class="form-cancel">Batal</a>
+        </div>
+    </form>
+</div>
 @endsection
